@@ -1,0 +1,11 @@
+db2:
+  image: 9801629b153b
+  container_name: db2server
+  restart: always
+  ports:
+      - 50000:50000
+  volumes: 
+      - /db2data:/database 
+  env_file:
+      - db2.env
+  privileged: true
