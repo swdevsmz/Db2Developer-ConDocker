@@ -1,16 +1,16 @@
-Windows”ÅDocker‚ÌƒCƒ“ƒXƒg[ƒ‹
+Windowsç‰ˆDockerã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 
-db2_IMM14214JPJA.pdf‚ğQl‚ÉƒCƒ[ƒWudb2_developer_cv‚ğæ“¾
+db2_IMM14214JPJA.pdfã‚’å‚è€ƒã«ã‚¤ãƒ¡ãƒ¼ã‚¸ã€Œdb2_developer_cã€ã‚’å–å¾—
 
-EDocker‚ÉƒƒOƒCƒ“
+ãƒ»Dockerã«ãƒ­ã‚°ã‚¤ãƒ³
 # docker login
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID,
 head over to https://hub.docker.com to create one.
 Username: xxxx
-Password: ƒpƒXƒ[ƒh‚ğ“ü—Íi•\¦‚Í‚³‚ê‚Ü‚¹‚ñj
+Password: ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ï¼ˆè¡¨ç¤ºã¯ã•ã‚Œã¾ã›ã‚“ï¼‰
 Login Succeeded
 
-EƒRƒ“ƒeƒi‚ğƒ_ƒEƒ“ƒ[ƒh
+ãƒ»ã‚³ãƒ³ãƒ†ãƒŠã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
 # docker pull store/ibmcorp/db2_developer_c:11.1.2.2b-x86_64
 11.1.2.2: Pulling from store/ibmcorp/db2_developer_c
 18b8eb7e7f01: Pull complete
@@ -23,7 +23,7 @@ Digest: sha256:f9a4ccfc37ecd845443750ef54583f2968a3aed8de8780db04882b0ffc522d99 
 Downloaded newer image for store/ibmcorp/db2_developer_c:11.1.2.2
 21
 
-Eİ’èƒtƒ@ƒCƒ‹‚ğ•ÒWi‚¨D‚İ‚É‚ ‚í‚¹‚Äİ’è‚ğ•Ï‚¦‚Ä‰º‚³‚¢j
+ãƒ»è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç·¨é›†ï¼ˆãŠå¥½ã¿ã«ã‚ã‚ã›ã¦è¨­å®šã‚’å¤‰ãˆã¦ä¸‹ã•ã„ï¼‰
 # cat db2.env
 # set License to accept to use the Db2 software contained in this image
 LICENSE=accept
@@ -44,16 +44,16 @@ TO_CREATE_SAMPLEDB=false
 # set to true to create DSM repository database
 REPODB=true
 
-EƒRƒ“ƒeƒi‚ğÀsirunj
+ãƒ»ã‚³ãƒ³ãƒ†ãƒŠã‚’å®Ÿè¡Œï¼ˆrunï¼‰
 #docker run -h db2server_qiitaTry --name db2server --restart=always --detach --privileged=true -p 50000 --env-file ./db2.env -v
 /data:/database 83e8b59d8007
 
 
-¨Docker-Compose‚ğg‚¤ê‡
+â†’Docker-Composeã‚’ä½¿ã†å ´åˆ
 docker-compose up -d
-docker-compose.yml‚Æ“¯ˆêƒfƒBƒŒƒNƒgƒŠ‚ÅÀs
+docker-compose.ymlã¨åŒä¸€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§å®Ÿè¡Œ
 
-Erun‚Ìó‹µ‚ğdocker logsƒRƒ}ƒ“ƒh‚ÅŠm”FBÅŒã‚Éu(*) All databases are now active.v‚ªo‚é‚Ü‚Å‘Ò‚ÂB
+ãƒ»runã®çŠ¶æ³ã‚’docker logsã‚³ãƒãƒ³ãƒ‰ã§ç¢ºèªã€‚æœ€å¾Œã«ã€Œ(*) All databases are now active.ã€ãŒå‡ºã‚‹ã¾ã§å¾…ã¤ã€‚
 # docker logs -f db2server
 (*) Previous setup has not been detected. Creating the users...
 (*) Creating users ...
@@ -61,12 +61,12 @@ docker-compose.yml‚Æ“¯ˆêƒfƒBƒŒƒNƒgƒŠ‚ÅÀs
 (*) Creating instance ... DB2 installation is being initialized.
 Total number of tasks to be performed: 4
 
-E‹N“®‚ªŠ®—¹‚µ‚½‚çA‰Ò“­Šm”FBƒRƒ“ƒeƒi‚ÉƒƒOƒCƒ“
+ãƒ»èµ·å‹•ãŒå®Œäº†ã—ãŸã‚‰ã€ç¨¼åƒç¢ºèªã€‚ã‚³ãƒ³ãƒ†ãƒŠã«ãƒ­ã‚°ã‚¤ãƒ³
 # docker exec -ti db2server bash -c "su - db2inst1"
 Last login: Fri Oct 20 14:34:37 UTC 2017
 [db2inst1@db2server_q ~]$
 
-EDB‚ÉÚ‘±‚µAƒe[ƒuƒ‹ˆê——‚ğ•\¦‚µ‚Ä‚İ‚é
+ãƒ»DBã«æ¥ç¶šã—ã€ãƒ†ãƒ¼ãƒ–ãƒ«ä¸€è¦§ã‚’è¡¨ç¤ºã—ã¦ã¿ã‚‹
 [db2inst1@db2server ~]$ db2 connect to sample
 Database Connection Information
 Database server = DB2/LINUXX8664 11.1.2.2
