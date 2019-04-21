@@ -5,7 +5,7 @@ db2:
   ports:
       - 50000:50000
   volumes: 
-      - /db2data:/database 
+      - /Docker/db2/database:/database 
   env_file:
       - db2.env
   privileged: true
