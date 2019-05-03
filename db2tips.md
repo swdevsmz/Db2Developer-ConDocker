@@ -129,3 +129,36 @@ CREATE SCHEMA APLDBUSR AUTHORIZATION DB2ADMIN;
 GRANT ALTERIN ON SCHEMA APLDBUSR TO USER DB2ADMIN WITH GRANT OPTION;
 GRANT CREATEIN ON SCHEMA APLDBUSR TO USER DB2ADMIN WITH GRANT OPTION;
 GRANT DROPIN ON SCHEMA APLDBUSR TO USER DB2ADMIN WITH GRANT OPTION;
+
+
+DB2が出力するエラーコードは、大きく2種類に分けられます。"SQL..."から始まるSQLCODEと、5桁の数字で表示されるSQLSTATEです。これらはdb2コマンドに?を付け、続けてSQLCODEやSQLSTATEを記述する事で意味を確認できます。
+例)> db2 "? SQL-901" (SQLCODEの確認)
+例)> db2 "? 58004" (SQLSTATEの確認)
+
+
+EXPLAN表の作成
+https://www-01.ibm.com/support/docview.wss?uid=swg21596631
+
+【V9.5 以降の作成方法】 
+V9.5 以降では上記の EXPLAIN.DDL を利用する以外に、SYSINSTALLOBJECTS プロシージャーを利用して EXPLAIN 表を作成することもできます。 
+プロシージャーの第 3 引数は表を作成する表スペース名を、第 4 引数には表のスキーマ名を指定してください。 
+それぞれ NULL もしくは空文字の場合、SYSTOOLSPACE 表スペースに SYSTOOLS スキーマで作成されます。 
+SYSTOOLSPACE 表スペースがまだ存在しない場合、自動で作成されます。 
+
+以下の実行例では、SYSTOOLSPACE 表スペースに、接続ユーザー名のスキーマで Explain 表を作成します。 
+$ db2 connect to [データベース名] 
+$ db2 "call SYSPROC.SYSINSTALLOBJECTS( 'EXPLAIN', 'C' , '', CURRENT USER )" 
+
+↓
+
+$ db2 "call SYSPROC.SYSINSTALLOBJECTS( 'EXPLAIN', 'C' , '', '' )" 
+
+
+【V9.5 以降の削除方法】 
+SYSINSTALLOBJECTS プロシージャーを利用して、Explain 表を削除できます。 
+第 4 引数には DROP する表のスキーマ名を指定してください。 
+NULL もしくは空文字の場合、SYSTOOLS スキーマの表が削除されます。 
+
+以下の実行例では、接続ユーザー名のスキーマの Explain 表を削除します。 
+$ db2 connect to [データベース名] 
+$ db2 "call SYSPROC.SYSINSTALLOBJECTS( 'EXPLAIN', 'D', '', CURRENT USER )"
