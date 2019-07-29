@@ -12,7 +12,7 @@ Login Succeeded
 
 ## コンテナをダウンロード
 ~~~
-docker pull store/ibmcorp/db2_developer_c:11.1.2.2b-x86_64
+docker pull store/ibmcorp/db2_developer_c:11.1.2.2
 11.1.2.2: Pulling from store/ibmcorp/db2_developer_c
 18b8eb7e7f01: Pull complete
 bd79b882979f: Pull complete
@@ -51,8 +51,7 @@ REPODB=true
 
 ## コンテナを実行（run）
 ~~~
-docker run -h db2server_qiitaTry --name db2server --restart=always --detach --privileged=true -p 50000 --env-file ./db2.env -v
-/data:/database 83e8b59d8007
+docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000 --env-file ./db2.env -v /data:/database store/ibmcorp/db2_developer_c:11.1.2.2
 ~~~
 
 ## Docker-Composeを使う場合
