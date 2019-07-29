@@ -1,11 +1,11 @@
 db2:
-  image: 9801629b153b
+  image: store/ibmcorp/db2_developer_c:11.1.2.2
   container_name: db2server
   restart: always
   ports:
       - 50000:50000
   volumes: 
-      - /Docker/db2/database:/database 
+      - /data:/database 
   env_file:
       - db2.env
   privileged: true
